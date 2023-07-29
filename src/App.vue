@@ -1,15 +1,12 @@
 <template>
   <div id="app">
-    <h1>ToDo List</h1>
-    <AddTodo @add-todo="addTodo"/>
+    <h1>The first Vue App</h1>
     <hr>
-    <TodoList v-bind:todos="todos" v-on:remove-todo="removeTodo"/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import TodoList from '@/components/TodoList'
-import AddTodo from '@/components/AddTodo.vue'
 export default {
   name: 'App',
   data() {
@@ -17,13 +14,9 @@ export default {
       todos: []
     }
   },
-  components: {
-    TodoList,
-    AddTodo
-  },
 
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
       .then(response => response.json())
       .then(json => this.todos = json)
   },

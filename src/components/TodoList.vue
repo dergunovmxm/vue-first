@@ -8,6 +8,7 @@
             v-on:remove-todo="removeTodo"
             />
         </ul>
+        
     </div>
 </template>
 
@@ -32,6 +33,8 @@ export default {
     .todo{
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     ul {
